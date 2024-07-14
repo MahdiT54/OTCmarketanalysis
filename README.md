@@ -33,6 +33,19 @@ Business Persona:
 * IT/System Administrator: professionals managing the technical infrastructure of the trading system. 
 
 
+Business Requirements:
+1. Revenue Growth
+2. Market Expansion
+   * Developed a comprehensive marketing strategy to attract and retain users.
+   * Utilizing digital marketing, social media, and partnerships to reach target audiences.
+3. Competitive Advantage 
+4. User engagement and retention
+  * Provide a superior trading experience with comprehensive data, tools, and support.
+5. Strategic insights and innovation
+  * Leverage data analytics for strategic decision-making and market predictions.
+  * Foster a culture of continuous innovation and improvement.
+
+
 Functional Requirements:
 * Graph/historical diagram of all security (line chart).
 * Most traded security type.
