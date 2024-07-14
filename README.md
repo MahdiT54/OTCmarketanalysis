@@ -1,12 +1,12 @@
 OTC markets analysis by George, Lily, Mahdi, and Rubyat.
 
-Setting up dbt, 
-Connecting PowerBI/Tableau to Snowflake, 
-Create the ELT
+Setting up DBT, 
+Connecting Tableau to Snowflake, 
+Creating the ELT.
 
 This repository contains scripts and documentation for analyzing OTC markets using various tools and platforms.
 
-Table of Contents
+Table of Contents:
 * Business Problem
 * Business Impact
 * Business Persona
