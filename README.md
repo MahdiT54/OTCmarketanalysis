@@ -40,10 +40,10 @@ Business Requirements:
    * Utilizing digital marketing, social media, and partnerships to reach target audiences.
 3. Competitive Advantage 
 4. User engagement and retention
-  * Provide a superior trading experience with comprehensive data, tools, and support.
+   * Provide a superior trading experience with comprehensive data, tools, and support.
 5. Strategic insights and innovation
-  * Leverage data analytics for strategic decision-making and market predictions.
-  * Foster a culture of continuous innovation and improvement.
+   * Leverage data analytics for strategic decision-making and market predictions.
+   * Foster a culture of continuous innovation and improvement.
 
 
 Functional Requirements:
