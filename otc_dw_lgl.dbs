@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="otc_dw_lgl" database="LogicalDesign" id="LogicalDesign-48a" >
+	<schema name="OTC" catalogname="otc_dw_lgl" >
+		<table name="dim_date" prior="Entity" >
+			<comment><![CDATA[month_number
+quarter_number
+day_number
+hour_number
+day_name
+month_name
+week_of_month
+week_of_year]]></comment>
+			<column name="date_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="year_number" type="INT" jt="4" />
+			<column name="month_number" type="INT" jt="4" />
+			<column name="quarter_number" type="INT" jt="4" />
+			<column name="day_number" type="DATE" jt="91" />
+			<column name="hour_number" type="DATE" jt="91" />
+			<column name="day_name" type="VARCHAR" length="100" jt="12" />
+			<column name="month_name" type="VARCHAR" length="100" jt="12" />
+			<column name="week_of_month" type="VARCHAR" length="100" jt="12" />
+			<column name="week_of_year" type="VARCHAR" length="100" jt="12" />
+			<column name="isHoliday" type="DATE" jt="91" />
+			<index name="pk_dim_date" unique="PRIMARY_KEY" >
+				<column name="date_id" />
+			</index>
+		</table>
+		<table name="dim_otc_tier" prior="Entity" >
+			<column name="otc_tier_id" type="INT" jt="4" mandatory="y" />
+			<column name="otc_tier" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_otc_tier" unique="PRIMARY_KEY" >
+				<column name="otc_tier_id" />
+			</index>
+		</table>
+		<table name="dim_price_source" prior="Entity" >
+			<column name="price_source_id" type="INT" jt="4" mandatory="y" />
+			<column name="price_source_name" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_price_source" unique="PRIMARY_KEY" >
+				<column name="price_source_id" />
+			</index>
+		</table>
+		<table name="dim_security" prior="Security" >
+			<column name="security_id" type="INT" jt="4" mandatory="y" />
+			<column name="company_id" type="INT" jt="4" />
+			<column name="trading_symbol" type="CHAR" length="10" jt="1" />
+			<column name="CUSIP_number" type="CHAR" length="9" jt="1" />
+			<column name="security_name (issue)" prior="security_name" type="CHAR" length="50" jt="1" />
+			<column name="security_type" type="VARCHAR" length="75" jt="12" />
+			<column name="security_class" type="CHAR" length="1" jt="1" />
+			<column name="security_status" type="VARCHAR" length="20" jt="12" />
+			<column name="finraIssuerIdentifier" type="INT" jt="4" />
+			<column name="security_description" type="VARCHAR" length="100" jt="12" />
+			<column name="company_name" type="VARCHAR" length="100" jt="12" />
+			<column name="country" type="CHAR" length="2" jt="1" />
+			<column name="state" type="CHAR" length="2" jt="1" />
+			<index name="pk_dim_security" unique="PRIMARY_KEY" >
+				<column name="security_id" />
+			</index>
+		</table>
+		<table name="dim_trading_venue" prior="Entity" >
+			<comment><![CDATA[trading_venue]]></comment>
+			<column name="trading_venue_id" type="INT" jt="4" mandatory="y" />
+			<column name="trading_venue" type="CHAR" length="20" jt="1" />
+			<index name="pk_dim_trading_venue" unique="PRIMARY_KEY" >
+				<column name="trading_venue_id" />
+			</index>
+		</table>
+		<table name="facts_otc" prior="facts" >
+			<comment><![CDATA[The flags are part of the facts]]></comment>
+			<column name="fact_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="closing_inside_bid_date_id" type="INT" jt="4" mandatory="y" />
+			<column name="closing_inside_ask_date_id" type="INT" jt="4" mandatory="y" />
+			<column name="closing_best_bid_date_id" prior="previous_close_bid_date_id" type="INT" jt="4" mandatory="y" />
+			<column name="closing_best_ask_date_id" prior="previous_close_ask_date_id" type="INT" jt="4" mandatory="y" />
+			<column name="previous_close_date_id" type="INT" jt="4" mandatory="y" />
+			<column name="short_interest_date_id" type="INT" jt="4" mandatory="y" />
+			<column name="otc_tier_id" type="INT" jt="4" mandatory="y" />
+			<column name="security_id" type="INT" jt="4" mandatory="y" />
+			<column name="price_source_id" type="INT" jt="4" mandatory="y" />
+			<column name="trading_venue_id" type="INT" jt="4" mandatory="y" />
+			<column name="closing_inside_bid" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="closing_inside_ask" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="closing_mid-price" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="closing_best_bid" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="closing_best_ask" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="closing_spread_inside" type="DECIMAL" length="11" decimal="5" jt="3" >
+				<comment><![CDATA[Difference of Ask and BId
+(Ask - Bid) / Ask]]></comment>
+			</column>
+			<column name="closing_spread_best" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="Caveat_Emptor_Flag" prior="CaveatEmptorFlag" type="CHAR" length="1" jt="1" />
+			<column name="Reg_SHO_Status_Flag" prior="RegSHOStatusFlag" type="CHAR" length="1" jt="1" />
+			<column name="Rule_3210_Status_Flag" prior="Rule3210StatusFlag" type="CHAR" length="1" jt="1" />
+			<column name="price_open" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="price_high" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="price_low" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="price_last" type="DECIMAL" length="11" decimal="5" jt="3" />
+			<column name="pivot_point" type="DECIMAL" length="11" decimal="5" jt="3" >
+				<comment><![CDATA[(High + Low + Close) / 3]]></comment>
+			</column>
+			<column name="share_volume" type="INT" jt="4" />
+			<column name="dollar_volume" type="DECIMAL" length="30" decimal="20" jt="3" />
+			<column name="trade_count" type="INT" jt="4" />
+			<column name="otc_link_share_volume" type="INT" jt="4" />
+			<column name="otc_link_$_volume" type="DECIMAL" length="30" decimal="20" jt="3" />
+			<column name="otc_link_trade_count" type="INT" jt="4" />
+			<column name="number_of_market_makers" type="INT" jt="4" />
+			<column name="bona_fide_continuous (BFC)" type="INT" jt="4" />
+			<column name="total_shares_outstanding" type="DECIMAL" length="16" decimal="1" jt="3" />
+			<index name="pk_facts_otc" unique="PRIMARY_KEY" >
+				<column name="fact_id" />
+				<column name="otc_tier_id" />
+			</index>
+			<fk name="fk_facts_otc_dim_date" to_schema="otc_dw_lgl.OTC" to_table="dim_date" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="closing_inside_bid_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_date_0" to_schema="otc_dw_lgl.OTC" to_table="dim_date" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="closing_inside_ask_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_date_1" to_schema="otc_dw_lgl.OTC" to_table="dim_date" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="closing_best_bid_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_date_2" to_schema="otc_dw_lgl.OTC" to_table="dim_date" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="closing_best_ask_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_date_3" to_schema="otc_dw_lgl.OTC" to_table="dim_date" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="previous_close_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_date_4" to_schema="otc_dw_lgl.OTC" to_table="dim_date" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="short_interest_date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_otc_tier" to_schema="otc_dw_lgl.OTC" to_table="dim_otc_tier" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="otc_tier_id" pk="otc_tier_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_security" to_schema="otc_dw_lgl.OTC" to_table="dim_security" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="security_id" pk="security_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_price_source" to_schema="otc_dw_lgl.OTC" to_table="dim_price_source" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="price_source_id" pk="price_source_id" />
+			</fk>
+			<fk name="fk_facts_otc_dim_trading_venue" to_schema="otc_dw_lgl.OTC" to_table="dim_trading_venue" type="NonIdentifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="trading_venue_id" pk="trading_venue_id" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-49" show_relation="columns" >
+		<entity schema="otc_dw_lgl.OTC" name="dim_date" color="C1D8EE" x="48" y="48" />
+		<entity schema="otc_dw_lgl.OTC" name="dim_otc_tier" color="C1D8EE" x="1248" y="544" />
+		<entity schema="otc_dw_lgl.OTC" name="dim_price_source" color="C1D8EE" x="48" y="576" />
+		<entity schema="otc_dw_lgl.OTC" name="dim_security" color="C1D8EE" x="1168" y="160" />
+		<entity schema="otc_dw_lgl.OTC" name="dim_trading_venue" color="C1D8EE" x="48" y="336" />
+		<entity schema="otc_dw_lgl.OTC" name="facts_otc" color="C1D8EE" x="640" y="128" />
+		<callout x="304" y="816" pointer="SV" >
+			<comment><![CDATA[1) Complete all dimensions based on the excel sheet
+2) Add all facts with all decimal, referr to the excel
+3) Send it back to me becore tomorrow 12pm.]]></comment>
+		</callout>
+	</layout>
+</project>
