@@ -50,8 +50,8 @@ Functional Requirements:
 * Graph/historical diagram of all security (line chart).
 * Most traded security type.
 * Most traded security per year, month, week, and day.
-*   Cumulative data per security.
-*   Comparison over years, months, weeks, and days.
+  * Cumulative data per security.
+  * Comparison over years, months, weeks, and days.
 * Spread for each transaction (the difference between the bid and the ask).
 * Classification for each company.
 * Algorithm-based machine/deep learning.
