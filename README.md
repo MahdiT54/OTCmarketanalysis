@@ -90,7 +90,7 @@ Weaknesses:
 * Missing Metadata
     * Contextual gaps: it is challenging to assess the reliability and relevance of the data since metadata provides essential context about the data (such as origin, collection methods, and quality).
     * Challenges in data management: proper metadata management is crucial for maintaining data quality and consistency over time.
-    * Reduced data usability leads to misinterpretations, resulting in incorrect analyses and flawed conclusions, reducing data's overall usability and value. 
+    * Reduced data usability: leads to misinterpretations, resulting in incorrect analyses and flawed conclusions, reducing data's overall usability and value. 
 
 
 Data Tools:
