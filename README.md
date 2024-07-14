@@ -1,5 +1,5 @@
 OTC markets analysis by Lily, Mahdi, Rubyat, George
 
 Setting up dbt
-Connecting PowerBI/Tableau to Snowflake
-Create the ELT
+Designing the logical design
+Generating a snowflake schema
