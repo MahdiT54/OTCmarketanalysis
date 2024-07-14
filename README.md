@@ -73,25 +73,12 @@ Originally: 2193 KB; 8 rows, 16885 columns (pre-extraction).
 Snowflake: 14.2 GB; 7 tables, 64.7M rows (post-extraction/raw).
 
 Strengths: 
-* Comprehensive Descriptions
-    * Detail-oriented: provides a rich context that enhances the interpretability and usability of the data. This level of detail helps analysts and users make informed decisions based on a thorough understanding of each security.
-    * Depth of information: contributes to the creation of robust analytical models. It enables the development of sophisticated algorithms that consider a wide range of factors, leading to more accurate and actionable insights.
-    * Enhanced user experience: allows them to quickly grasp the significance of data points, making the platform more user-friendly and accessible. It also supports educational initiatives, helping users understand complex financial concepts and market dynamics.
-* Consistent Data Types
-    * Uniformity: ensures that all values within a column adhere to a specific format; simplifies data cleaning, and preprocessing tasks, reducing the time and effort required to prepare the data for analysis.
-    * Reduced errors
-    * Ease of integration: facilitates the integration of the dataset with various analytical tools, machine learning frameworks, and database management systems.
+* Comprehensive Descriptions (detail-oriented, depth of information)
+* Consistent Data Types (uniformity, reduced errors, ease of integration)
 
 Weaknesses:
-* Limited Data Types
-    * Lack of variety: consists of numerical and categorical data, which limits the scope of analysis.
-    * Reduced analytical potential: restricts the range of analyses that can be conducted.
-    * Constrain machine learning: machine learning models often benefit from a variety of data inputs.
-* Missing Metadata
-    * Contextual gaps: it is challenging to assess the reliability and relevance of the data since metadata provides essential context about the data (such as origin, collection methods, and quality).
-    * Challenges in data management: proper metadata management is crucial for maintaining data quality and consistency over time.
-    * Reduced data usability: leads to misinterpretations, resulting in incorrect analyses and flawed conclusions, reducing data's overall usability and value. 
-
+* Limited Data Types (lack of variety, reduced analytical potential, constrained machine learning)
+* Missing Metadata (contextual gaps, challenges in data management, reduced data usability)
 
 Data Tools:
 1. Data Storage: Azure SQL Database, Azure Blob Storage.
