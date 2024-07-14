@@ -72,6 +72,8 @@ Size:
 Originally: 2193 KB; 8 rows, 16885 columns (pre-extraction).
 Snowflake: 14.2 GB; 7 tables, 64.7M rows (post-extraction/raw).
 
+Strengths: Comprehensive descriptions; consistent data types.
+Weaknesses: Limited data types; missing metadata.
 
 Data Tools:
 1. Data Storage: Azure SQL Database, Azure Blob Storage.
