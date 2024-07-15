@@ -8,7 +8,6 @@ This repository contains scripts and documentation for analyzing OTC markets usi
 
 Table of Contents:
 * Business Problem
-* Business Impact
 * Business Persona
 * Requirements
 * Data
